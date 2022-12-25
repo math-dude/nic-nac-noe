@@ -1,0 +1,8 @@
+
+  
+  td {
+    border: 1px solid black; /* add a border to the cells */
+    width: 100px; /* set the width of the cells to 33% of the table width */
+    height: 100px; /* set the height of the cells to 33% of the table height */
+  }
+  
