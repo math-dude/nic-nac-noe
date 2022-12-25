@@ -66,6 +66,13 @@ let boardstate =
         ]
         
     },
+    big_board :
+    [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]
+    ],
+    player_turn : 1,
     reset : function()
     {
         for (board in this.full_board) {
@@ -73,6 +80,18 @@ let boardstate =
         }
     }
 }
+
+let players_map =
+{
+    1 : "X",
+    "X" : 1,
+    2 : "O",
+    "O" : 2
+}
+
+let player_colors = ["black", "red", "blue"];
+
+let player_turn = 1;
 
 function how_to_play()
 {
@@ -91,12 +110,10 @@ function startGame()
 {
     boardstate.reset();
 }
-function player_turn()
+function play_turn(box)
 {
+    document.getElementsByClassName("side_board")[box].innerHTML = players_map[player_turn];
+    document.getElementsByClassName("side_board")[box].style.color = player_colors[player_turn];
 
-}
-function player_move(box, symbol = "O", color = "#1c9dff")
-{
-    document.getElementsByClassName("side_board")[box].innerHTML = symbol;
-    document.getElementsByClassName("side_board")[box].style.color = color;
+    player_turn = (player_turn % 2) + 1;
 }
