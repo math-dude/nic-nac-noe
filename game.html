@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tic Tac Toe</title>
+
+    <link rel="stylesheet" href="game.css" />
+    <link rel="stylesheet" href="grid_boxes.css" />
+    <script src="main.js"></script>
+  </head>
+
+  <body>
+    <h1>A 3x3 Grid</h1>
+    <table class="full_table">
+      <td>
+        <table class="main_board">
+          <tr>
+            <td class="grid_box_a">
+              <div class="sub_board">
+                <div class="board_a"></div>
+                <div class="board_a"></div>
+                <div class="board_a"></div>
+                <div class="board_a"></div>
+                <div class="board_a"></div>
+                <div class="board_a"></div>
+                <div class="board_a"></div>
+                <div class="board_a"></div>
+                <div class="board_a"></div>
+              </div>
+            </td>
+            <td class="grid_box_b">
+              <div class="sub_board">
+                <div class="board_b"></div>
+                <div class="board_b"></div>
+                <div class="board_b"></div>
+                <div class="board_b"></div>
+                <div class="board_b"></div>
+                <div class="board_b"></div>
+                <div class="board_b"></div>
+                <div class="board_b"></div>
+                <div class="board_b"></div>
+              </div>
+            </td>
+            <td class="grid_box_c">
+              <div class="sub_board">
+                <div class="board_c"></div>
+                <div class="board_c"></div>
+                <div class="board_c"></div>
+                <div class="board_c"></div>
+                <div class="board_c"></div>
+                <div class="board_c"></div>
+                <div class="board_c"></div>
+                <div class="board_c"></div>
+                <div class="board_c"></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="grid_box_d">
+              <div class="sub_board">
+                <div class="board_d"></div>
+                <div class="board_d"></div>
+                <div class="board_d"></div>
+                <div class="board_d"></div>
+                <div class="board_d"></div>
+                <div class="board_d"></div>
+                <div class="board_d"></div>
+                <div class="board_d"></div>
+                <div class="board_d"></div>
+              </div>
+            </td>
+            <td class="grid_box_e">
+              <div class="sub_board">
+                <div class="board_e"></div>
+                <div class="board_e"></div>
+                <div class="board_e"></div>
+                <div class="board_e"></div>
+                <div class="board_e"></div>
+                <div class="board_e"></div>
+                <div class="board_e"></div>
+                <div class="board_e"></div>
+                <div class="board_e"></div>
+              </div>
+            </td>
+            <td class="grid_box_f">
+              <div class="sub_board">
+                <div class="board_f"></div>
+                <div class="board_f"></div>
+                <div class="board_f"></div>
+                <div class="board_f"></div>
+                <div class="board_f"></div>
+                <div class="board_f"></div>
+                <div class="board_f"></div>
+                <div class="board_f"></div>
+                <div class="board_f"></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="grid_box_g">
+              <div class="sub_board">
+                <div class="board_g"></div>
+                <div class="board_g"></div>
+                <div class="board_g"></div>
+                <div class="board_g"></div>
+                <div class="board_g"></div>
+                <div class="board_g"></div>
+                <div class="board_g"></div>
+                <div class="board_g"></div>
+                <div class="board_g"></div>
+              </div>
+            </td>
+            <td class="grid_box_h">
+              <div class="sub_board">
+                <div class="board_h"></div>
+                <div class="board_h"></div>
+                <div class="board_h"></div>
+                <div class="board_h"></div>
+                <div class="board_h"></div>
+                <div class="board_h"></div>
+                <div class="board_h"></div>
+                <div class="board_h"></div>
+                <div class="board_h"></div>
+              </div>
+            </td>
+            <td class="grid_box_i">
+              <div class="sub_board">
+                <div class="board_i"></div>
+                <div class="board_i"></div>
+                <div class="board_i"></div>
+                <div class="board_i"></div>
+                <div class="board_i"></div>
+                <div class="board_i"></div>
+                <div class="board_i"></div>
+                <div class="board_i"></div>
+                <div class="board_i"></div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td>
+        <div class="small_board">
+          <div class="side_board" onclick="player_move(0)"></div>
+          <div class="side_board" onclick="player_move(1)"></div>
+          <div class="side_board" onclick="player_move(2)"></div>
+          <div class="side_board" onclick="player_move(3)"></div>
+          <div class="side_board" onclick="player_move(4)"></div>
+          <div class="side_board" onclick="player_move(5)"></div>
+          <div class="side_board" onclick="player_move(6)"></div>
+          <div class="side_board" onclick="player_move(7)"></div>
+          <div class="side_board" onclick="player_move(8)"></div>
+        </div>
+      </td>
+    </table>
+  </body>
+  <script type="text/javascript">
+    startGame();
+  </script>
+</html>
