@@ -8,51 +8,15 @@
   margin-left: 10%;
   margin-right: auto;
   }
-  
-.grid_box_a {
-    background-color: rgb(11, 96, 5);
-    border: 9px solid rgb(20, 170, 197); 
-  }
 
-.grid_box_b {
-    background-color: rgb(11, 96, 5);
-    border: 9px solid rgb(20, 170, 197); 
-  }
+.grid_box {
+  background-color: rgb(11, 96, 5);
+  border: 9px solid rgb(65, 163, 54);
+}
 
-.grid_box_c {
-    background-color: rgb(11, 96, 5);
-    border: 9px solid rgb(20, 170, 197); 
-  }
-
-.grid_box_d {
-    background-color: rgb(11, 96, 5);
-    border: 9px solid rgb(20, 170, 197); 
-  }
-
-.grid_box_e {
-    background-color: rgb(11, 96, 5);
-    border: 9px solid rgb(20, 170, 197); 
-  }
-
-.grid_box_f {
-    background-color: rgb(11, 96, 5);
-    border: 9px solid rgb(20, 170, 197); 
-  }
-
-.grid_box_g {
-    background-color: rgb(11, 96, 5);
-    border: 9px solid rgb(20, 170, 197); 
-  }
-
-.grid_box_h {
-    background-color: rgb(11, 96, 5);
-    border: 9px solid rgb(20, 170, 197); 
-  }
-
-.grid_box_i {
-    background-color: rgb(11, 96, 5);
-    border: 9px solid rgb(20, 170, 197); 
-  }
+.selecting:hover{
+  background-color: rgb(234, 237, 86);
+}
 
 .sub_board {
     display: grid;
