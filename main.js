@@ -95,11 +95,11 @@ let player_turn = 1;
 
 function how_to_play()
 {
-    window.location.href = "help.html"
+    window.location.href = "help.html";
 }
 function home()
 {
-    window.location.href = "start.html"
+    window.location.href = "start.html";
 }
 function openGame()
 {
@@ -112,8 +112,15 @@ function startGame()
 }
 function play_turn(box)
 {
-    document.getElementsByClassName("side_board")[box].innerHTML = players_map[player_turn];
-    document.getElementsByClassName("side_board")[box].style.color = player_colors[player_turn];
+    if(document.getElementsByClassName("side_board")[box] != "" )
+    {
+        play_turn(box);
+    }
+    else
+    {
+        document.getElementsByClassName("side_board")[box].innerHTML = players_map[player_turn];
+        document.getElementsByClassName("side_board")[box].style.color = player_colors[player_turn];  
+        player_turn = (player_turn % 2) + 1;
+        }
 
-    player_turn = (player_turn % 2) + 1;
 }
