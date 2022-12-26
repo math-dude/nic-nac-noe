@@ -111,16 +111,27 @@ function startGame()
     boardstate.reset();
 }
 function play_turn(box)
-{
-    if(document.getElementsByClassName("side_board")[box] != "" )
-    {
-        play_turn(box);
-    }
-    else
-    {
+{    
+    if (document.getElementsByClassName("side_board")[box].innerHTML==""){
         document.getElementsByClassName("side_board")[box].innerHTML = players_map[player_turn];
         document.getElementsByClassName("side_board")[box].style.color = player_colors[player_turn];  
         player_turn = (player_turn % 2) + 1;
-        }
+    }
+    else
+    {
+        play_turn(box);
+    }
 
+}
+function resign()
+{
+ if(confirm("Are you sure you want to resign?" == true))
+ {
+    //Indicate player wins
+    home()
+ }
+ else
+ {
+    play_turn(box);
+ }
 }
