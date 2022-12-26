@@ -81,6 +81,37 @@ let boardstate =
     }
 }
 
+//menu functions & variables
+function how_to_play()
+{
+    window.location.href = "help.html";
+}
+
+function home()
+{
+    window.location.href = "start.html";
+}
+
+function openGame()
+{
+    window.location.href = "game.html";
+    
+}
+//
+
+//start of game functions & variables
+function startGame()
+{
+    boardstate.reset();
+}
+
+function start_select()
+{
+
+}
+//
+
+//gameplay functions & variables
 let players_map =
 {
     1 : "X",
@@ -93,23 +124,6 @@ let player_colors = ["black", "red", "blue"];
 
 let player_turn = 1;
 
-function how_to_play()
-{
-    window.location.href = "help.html";
-}
-function home()
-{
-    window.location.href = "start.html";
-}
-function openGame()
-{
-    window.location.href = "game.html";
-    
-}
-function startGame()
-{
-    boardstate.reset();
-}
 function play_turn(box)
 {    
     if (document.getElementsByClassName("side_board")[box].innerHTML==""){
@@ -123,6 +137,7 @@ function play_turn(box)
     }
 
 }
+ 
 function resign()
 {
  if(confirm("Are you sure you want to resign?" == true))
@@ -135,3 +150,4 @@ function resign()
     play_turn(box);
  }
 }
+//
