@@ -1,16 +1,19 @@
 /*rgb(110, 209, 143)*/
-body {
+body
+{
   margin: 30px;
   background-color: rgb(110, 209, 143); 
   text-align:center;
-  }
+}
 
-h1 {
+h1
+{
   font-size: 72px;
   font-family: sans-serif;
-  }
+}
 
-button {
+button
+{
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
@@ -19,7 +22,8 @@ button {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  }
+}
+
 .resign 
 {
   position: absolute;

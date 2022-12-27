@@ -1,65 +1,74 @@
-.full_table {
+.full_table
+{
   width: 100%;
-  }
+}
 
-.main_board {
+.main_board
+{
   border-collapse: collapse;
   background-color: white;
   margin-left: 10%;
   margin-right: auto;
-  }
+}
 
-.grid_box {
+.grid_box
+{
   background-color: rgb(11, 96, 5);
   border: 9px solid rgb(65, 163, 54);
 }
 
-.selecting:hover{
+.selecting:hover
+{
   background-color: rgb(234, 237, 86);
 }
 
-.sub_board {
-    display: grid;
-    grid-gap: 9px;
-    grid-template-columns: repeat(3, 50px);
-    grid-template-rows: repeat(3, 50px);
-  }
+.sub_board
+{
+  display: grid;
+  grid-gap: 9px;
+  grid-template-columns: repeat(3, 50px);
+  grid-template-rows: repeat(3, 50px);
+}
 
-.sub_board > div {
-    padding: 9px;
-    background-color: rgb(110, 209, 143);
-    align-content: center;
-  }
+.sub_board > div
+{
+  background-color: rgb(110, 209, 143);
+  align-items: center;
+}
 
-.sub_board > div {
-    font-family: sans-serif;
-    font-size: 24px;
-    font-weight: bold; 
-  }
+.sub_board > div
+{
+  font-family: Helvetica;
+  font-size: 45px;
+  font-weight: bold; 
+}
 
-.small_board {
-    display: grid;
-    grid-gap: 9px;
-    grid-template-columns: repeat(3, 150px);
-    grid-template-rows: repeat(3, 150px);
-  }
+.small_board
+{
+  display: grid;
+  grid-gap: 9px;
+  grid-template-columns: repeat(3, 150px);
+  grid-template-rows: repeat(3, 150px);
+}
 
-.small_board  {
-    width: 510px;
-    height: 510px;
-    margin-right: 18%;
-    margin-left: auto;
-    background-color: rgb(11, 96, 5);
-    display: grid;
-    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-  }
+.small_board
+{
+  width: 510px;
+  height: 510px;
+  margin-right: 18%;
+  margin-left: auto;
+  background-color: rgb(11, 96, 5);
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
 
-.side_board {
-    background-color : rgb(110, 209, 143);
-    font-family: Helvetica;
-    font-weight: bold;
-    font-size: 130px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.side_board
+{
+  background-color : rgb(110, 209, 143);
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
