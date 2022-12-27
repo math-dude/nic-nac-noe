@@ -54,7 +54,7 @@
 .small_board
 {
   display: grid;
-  grid-gap: 9px;
+  grid-gap: 16px;
 }
 
 .small_board 

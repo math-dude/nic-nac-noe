@@ -17,6 +17,7 @@ h1
 h2
 {
   font-size: 30px;
+  font-weight: bold;
 }
 
 button
@@ -36,5 +37,5 @@ button
 {
   font-family: Helvetica;
   font-size: 130px;
-  font-style: bold;
+  font-weight: bold;
 }

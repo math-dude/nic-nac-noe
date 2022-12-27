@@ -117,6 +117,10 @@ function matchBoards(board_name)
     {
         colorBoard(board_name, "rgb(123, 219, 68)");
     }
+
+    //change grid color
+    const player_colors_highlight = ["rgb(11, 96, 5)", "rgb(250, 108, 82)", "rgb(73, 192, 242)"]
+    document.getElementById("small_board").style.backgroundColor = player_colors_highlight[boardstate.big_board[board_map[boardstate.current_board]]];
 }
 //
 
@@ -195,7 +199,6 @@ function play_turn(box)
 
         //check for win in sub_board
         checkSubWin();
-        checkWin();
         
         if (boardstate.full_board[board_map[box]].includes(0))
         {
@@ -226,6 +229,8 @@ function play_turn(box)
         //change game info
         document.getElementById("player_turn").innerHTML = players_map[player_turn];
         document.getElementById("game_info").style.color = player_colors[player_turn];
+        
+        checkWin();
     }
 }
 
