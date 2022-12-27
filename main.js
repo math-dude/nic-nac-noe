@@ -13,7 +13,8 @@ let boardstate =
         "board_f" : [0, 0, 0, 0, 0, 0, 0, 0, 0],
         "board_g" : [0, 0, 0, 0, 0, 0, 0, 0, 0],
         "board_h" : [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        "board_i" : [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        "board_i" : [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "" :[]
         
     },
     current_board : "",
@@ -121,16 +122,18 @@ function matchBoards(board_name)
 //start of game functions & variables
 
 //waits for the first player to select which sub_board they would like to start on
-function startSelect(board_name)
+function selectBoard(board_name)
 {
-    matchBoards(board_name);
-    
-    let all_boards = document.getElementsByClassName("grid_box");
-    for (i in all_boards)
+    if (boardstate.full_board[board_name].includes(0) && !boardstate.full_board[boardstate.current_board].includes(0))
     {
-        all_boards[i].className = "grid_box";
-        all_boards[i].style.pointerEvents = 'none';
-
+        matchBoards(board_name);
+        
+        //stops hover highlighting
+        let all_boards = document.getElementsByClassName("grid_box");
+        for (i in all_boards)
+        {
+            all_boards[i].className = "grid_box";
+        }
     }
 }
 
@@ -143,16 +146,12 @@ function startGame()
     for (i in all_boards)
     {
         all_boards[i].className = "grid_box selecting";
-        all_boards[i].style.pointerEvents = 'auto';
     }
 }
 //
 
 //gameplay functions & variables
 let player_turn = 1;
-
-//Empty function to delay output
-function empty() {}
 
 //Allows users to take turn with X/O with colors red/blue
 function play_turn(box)
@@ -173,9 +172,21 @@ function play_turn(box)
         //check for win in sub_board
         checkSubWin();
         
-        //switch boxes
-        //setTimeout(matchBoards, 500, board_map[box]);
-        matchBoards(board_map[box]);
+        if (boardstate.full_board[board_map[box]].includes(0))
+        {
+            //switch boxes
+            //setTimeout(matchBoards, 500, board_map[box]);
+            matchBoards(board_map[box]);
+        }
+        else
+        {
+            //turn hover highlighting back on
+            let all_boards = document.getElementsByClassName("grid_box");
+            for (i in all_boards)
+            {
+                all_boards[i].className = "grid_box selecting";
+            }
+        }
 
         //change player turn
         player_turn = (player_turn % 2) + 1;
