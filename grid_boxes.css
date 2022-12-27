@@ -7,8 +7,15 @@
 {
   border-collapse: collapse;
   background-color: white;
-  margin-left: 10%;
+  margin-left: auto;
   margin-right: auto;
+}
+
+.game_info
+{
+  border: 9px double rgb(94, 195, 35);
+  background-color: rgb(110, 217, 29);
+  color: rgb(176, 13, 13);
 }
 
 .grid_box
@@ -32,14 +39,15 @@
 
 .sub_board > div
 {
+  padding: 2px;
   background-color: rgb(110, 209, 143);
-  align-items: center;
+  align-content: center;
 }
 
 .sub_board > div
 {
   font-family: Helvetica;
-  font-size: 45px;
+  font-size: 44px;
   font-weight: bold; 
 }
 
@@ -47,22 +55,19 @@
 {
   display: grid;
   grid-gap: 9px;
-  grid-template-columns: repeat(3, 150px);
-  grid-template-rows: repeat(3, 150px);
 }
 
-.small_board
+.small_board 
 {
-  width: 510px;
-  height: 510px;
-  margin-right: 18%;
-  margin-left: auto;
+  width: 540px;
+  height: 540px;
   background-color: rgb(11, 96, 5);
-  display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.side_board
+.side_board 
 {
   background-color : rgb(110, 209, 143);
   font-family: Helvetica;

@@ -9,13 +9,20 @@ body
 h1
 {
   font-size: 72px;
-  font-family: sans-serif;
+  font-family: Arial;
+  text-align: center;
+}
+
+h2
+{
+  font-size: 30px;
 }
 
 button
 {
-  background-color: #4CAF50; /* Green */
+  background-color: #1bad20; /* Green */
   border: none;
+  border-radius: 100px;
   color: white;
   padding: 15px 32px;
   text-align: center;
@@ -24,9 +31,9 @@ button
   font-size: 16px;
 }
 
-.resign 
+.player_turn
 {
-  position: absolute;
-  bottom: 80px;
-  right: 100px;
+  font-family: Helvetica;
+  font-size: 130px;
+  font-style: bold;
 }

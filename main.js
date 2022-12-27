@@ -1,3 +1,5 @@
+
+
 // 0 => empty square, 1 => X, 2 => O
 
 let boardstate = 
@@ -79,7 +81,7 @@ const board_map =
     8 : "board_i"
 }
 
-const player_colors = ["black", "red", "blue"];
+const player_colors = ["black", "rgb(176, 13, 13)", "rgb(37, 90, 223)"];
 
 //changes color of one of the sub_boards in the left grid
 function colorBoard(board_name, color)
@@ -124,16 +126,14 @@ function matchBoards(board_name)
 //waits for the first player to select which sub_board they would like to start on
 function selectBoard(board_name)
 {
-    if (boardstate.full_board[board_name].includes(0) && !boardstate.full_board[boardstate.current_board].includes(0))
+    matchBoards(board_name);
+    
+    //stops hover highlighting
+    let all_boards = document.getElementsByClassName("grid_box");
+    for (i in all_boards)
     {
-        matchBoards(board_name);
-        
-        //stops hover highlighting
-        let all_boards = document.getElementsByClassName("grid_box");
-        for (i in all_boards)
-        {
-            all_boards[i].className = "grid_box";
-        }
+        all_boards[i].className = "grid_box";
+        all_boards[i].style.pointerEvents = "none";
     }
 }
 
@@ -142,16 +142,35 @@ function startGame()
 {
     boardstate.reset();
     
+    //enables hover highlighting
     let all_boards = document.getElementsByClassName("grid_box");
     for (i in all_boards)
     {
         all_boards[i].className = "grid_box selecting";
+        all_boards[i].style.pointerEvents = "auto";
     }
 }
 //
 
 //gameplay functions & variables
 let player_turn = 1;
+
+let full_boards = [];
+
+//hovering over box shows player character in box
+function showChar(box)
+{
+    document.getElementsByClassName("side_board")[box].innerHTML = players_map[player_turn];
+    document.getElementsByClassName("side_board")[box].style.color = player_colors[player_turn];
+    document.getElementsByClassName("side_board")[box].style.opacity = "0.5";
+}
+
+function hideChar(box)
+{
+    document.getElementsByClassName("side_board")[box].innerHTML = "";
+    document.getElementsByClassName("side_board")[box].style.color = "black";
+    document.getElementsByClassName("side_board")[box].style.opacity = "1";
+}
 
 //Allows users to take turn with X/O with colors red/blue
 function play_turn(box)
@@ -180,16 +199,26 @@ function play_turn(box)
         }
         else
         {
+            //add board to full_boards
+            full_boards.push(box);
+
             //turn hover highlighting back on
-            let all_boards = document.getElementsByClassName("grid_box");
-            for (i in all_boards)
+            for (let i = 0; i < 9; i ++)
             {
-                all_boards[i].className = "grid_box selecting";
+                if (!full_boards.includes(i))
+                {
+                    document.getElementById(i).className = "grid_box selecting";
+                    document.getElementById(i).style.pointerEvents = "auto";
+                }
             }
         }
 
         //change player turn
         player_turn = (player_turn % 2) + 1;
+
+        //change game info
+        document.getElementById("player_turn").innerHTML = players_map[player_turn];
+        document.getElementById("game_info").style.color = player_colors[player_turn];
     }
 }
 
@@ -220,6 +249,9 @@ function checkSubWin()
         }
     }
 }
+
+//check if full board has been won
+
 
 //Resign button to end game and give oppposition victory
 function resign()
