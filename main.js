@@ -96,7 +96,6 @@ function colorBoard(board_name, color)
 //also highlights which board is shown on the right side
 function matchBoards(board_name)
 {
-
     //remove previous highlighting
     if (boardstate.current_board != "")
     {
@@ -155,27 +154,33 @@ function startGame()
 //gameplay functions & variables
 let player_turn = 1;
 
+let turn_count = 0;
+
 let full_boards = [];
 
 //hovering over box shows player character in box
 function showChar(box)
 {
-    document.getElementsByClassName("side_board")[box].innerHTML = players_map[player_turn];
-    document.getElementsByClassName("side_board")[box].style.color = player_colors[player_turn];
-    document.getElementsByClassName("side_board")[box].style.opacity = "0.5";
+    if (boardstate.full_board[boardstate.current_board][box] == 0)
+    {
+        document.getElementsByClassName("side_board")[box].innerHTML = players_map[player_turn];
+        document.getElementsByClassName("side_board")[box].style.color = player_colors[player_turn];
+    }
 }
 
 function hideChar(box)
 {
-    document.getElementsByClassName("side_board")[box].innerHTML = "";
-    document.getElementsByClassName("side_board")[box].style.color = "black";
-    document.getElementsByClassName("side_board")[box].style.opacity = "1";
+    if (boardstate.full_board[boardstate.current_board][box] == 0)
+    {
+        document.getElementsByClassName("side_board")[box].innerHTML = "";
+        document.getElementsByClassName("side_board")[box].style.color = "black";
+    }
 }
 
 //Allows users to take turn with X/O with colors red/blue
 function play_turn(box)
-{    
-    if (document.getElementsByClassName("side_board")[box].innerHTML=="")
+{
+    if (boardstate.full_board[boardstate.current_board][box] == 0)
     {
         //inserts X/O
         document.getElementsByClassName("side_board")[box].innerHTML = players_map[player_turn];
@@ -190,6 +195,7 @@ function play_turn(box)
 
         //check for win in sub_board
         checkSubWin();
+        checkWin();
         
         if (boardstate.full_board[board_map[box]].includes(0))
         {
@@ -207,14 +213,15 @@ function play_turn(box)
             {
                 if (!full_boards.includes(i))
                 {
-                    document.getElementById(i).className = "grid_box selecting";
-                    document.getElementById(i).style.pointerEvents = "auto";
+                    document.getElementById("grid_box_" + i).className = "grid_box selecting";
+                    document.getElementById("grid_box_" + i).style.pointerEvents = "auto";
                 }
             }
         }
 
         //change player turn
         player_turn = (player_turn % 2) + 1;
+        turn_count ++;
 
         //change game info
         document.getElementById("player_turn").innerHTML = players_map[player_turn];
@@ -225,13 +232,15 @@ function play_turn(box)
 //check if any of the sub_boards have been won
 function checkSubWin()
 {
-    board_name = boardstate.current_board;
-    sub_board = boardstate.full_board[board_name];
+    let board_name = boardstate.current_board;
+    let sub_board = boardstate.full_board[board_name];
     if(boardstate.big_board[board_map[board_name]] == 0)
     {
         for (let player = 1; player <= 2; player ++)
         {
-            if ((player == sub_board[0] && player == sub_board[3] && player == sub_board[6]) ||
+            if
+            (
+                (player == sub_board[0] && player == sub_board[3] && player == sub_board[6]) ||
                 (player == sub_board[1] && player == sub_board[4] && player == sub_board[7]) ||
                 (player == sub_board[2] && player == sub_board[5] && player == sub_board[8]) ||
                 (player == sub_board[0] && player == sub_board[1] && player == sub_board[2]) ||
@@ -241,7 +250,6 @@ function checkSubWin()
                 (player == sub_board[2] && player == sub_board[4] && player == sub_board[6])
             )
             {
-
                 const player_colors_highlight = ["", "rgb(250, 108, 82)", "rgb(73, 192, 242)"]
                 boardstate.big_board[board_map[board_name]] = player;
                 document.getElementsByClassName("grid_box")[board_map[board_name]].style.backgroundColor = player_colors_highlight[player];
@@ -251,19 +259,80 @@ function checkSubWin()
 }
 
 //check if full board has been won
+function checkWin()
+{
+    let big_board = boardstate.big_board;
+    for (let player = 1; player <= 2; player ++)
+    {
+        if
+        (
+        (player == big_board[0] && player == big_board[3] && player == big_board[6]) ||
+        (player == big_board[1] && player == big_board[4] && player == big_board[7]) ||
+        (player == big_board[2] && player == big_board[5] && player == big_board[8]) ||
+        (player == big_board[0] && player == big_board[1] && player == big_board[2]) ||
+        (player == big_board[3] && player == big_board[4] && player == big_board[5]) ||
+        (player == big_board[6] && player == big_board[7] && player == big_board[8]) ||
+        (player == big_board[0] && player == big_board[4] && player == big_board[8]) ||
+        (player == big_board[2] && player == big_board[4] && player == big_board[6])
+        )
+        {
+            endGame(player);
+        }
+        else if (turn_count == 81)
+        {
+            endGame(0);
+        }
+    }
+}
 
+//resign/new game button type
+//0 - resign, 1 - new game
+let button_type = 0;
+
+//end game function
+// winning_player : 0 - draw, 1 - player 1 (X), 2 - player 2 (O)
+function endGame(winning_player)
+{
+    if (winning_player == 0)
+    {
+        document.getElementById("game_info_title").innerHTML = "Draw";
+        document.getElementById("game_info_title").style.color = "rbg(110, 110, 110)";
+
+        document.getElementById("player_turn").innerHTML = "-";
+        document.getElementById("player_turn").style.color = "rgb(110, 110, 110)";
+
+        
+    }
+    else
+    {
+        document.getElementById("game_info_title").innerHTML = "Player " + winning_player + " (" + players_map[winning_player] + ") Won";
+        document.getElementById("game_info_title").style.color = player_colors[winning_player];
+
+        document.getElementById("player_turn").innerHTML = players_map[winning_player];
+        document.getElementById("player_turn").style.color = player_colors[winning_player];
+
+    }
+
+    //change resign button to new game button
+    document.getElementById("resign/new_game").innerHTML = "New Game";
+    document.getElementById("small_board").style.pointerEvents = "none";
+    button_type = 1;
+}
 
 //Resign button to end game and give oppposition victory
-function resign()
+function resign_newgame()
 {
- if(confirm("Are you sure you want to resign?" == true))
- {
-    //Indicate player wins
-    home()
- }
- else
- {
-    play_turn(box);
- }
+    if (button_type == 0)
+    {
+        if(confirm("Are you sure you want to resign?" == true))
+        {
+            let winner_map = [0, 2, 1];
+            endGame(winner_map[player_turn]);
+        }
+    }
+    else
+    {
+        window.location.reload();
+    }
 }
 //

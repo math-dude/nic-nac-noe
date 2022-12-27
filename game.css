@@ -4,6 +4,7 @@ body
   margin: 30px;
   background-color: rgb(110, 209, 143); 
   text-align:center;
+  user-select: none;
 }
 
 h1
