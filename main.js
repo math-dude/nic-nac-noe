@@ -125,9 +125,6 @@ function matchBoards(board_name)
     //change grid color
     const player_colors_highlight = ["rgb(11, 96, 5)", "rgb(250, 108, 82)", "rgb(73, 192, 242)"]
     document.getElementById("small_board").style.backgroundColor = player_colors_highlight[boardstate.big_board[board_map[boardstate.current_board]]];
-
-    //enable left board
-    document.getElementById("small_board").style.pointerEvents = "auto";
 }
 //
 
@@ -151,7 +148,6 @@ function selectBoard(board_name)
 function startGame()
 {
     boardstate.reset();
-    
     //enables hover highlighting
     let all_boards = document.getElementsByClassName("grid_box");
     for (i in all_boards)
@@ -215,11 +211,14 @@ function play_turn(box)
         }
         else
         {
+            //alert player to pick another board
+            alert("Board full, pick a new board player " + player_turn);
+
             //add board to full_boards
             full_boards.push(box);
 
-            //disable small board
-            document.getElementById("small_board").style.pointerEvents = "none";
+            //switch to full board
+            matchBoards(board_map[box]);
 
             //turn hover highlighting back on
             for (let i = 0; i < 9; i ++)
