@@ -13,12 +13,16 @@
 
 .game_info
 {
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
   border: 9px double rgb(94, 195, 35);
   background-color: rgb(110, 217, 29);
   color: rgb(176, 13, 13);
+}
+
+.game_info_1
+{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .grid_box
