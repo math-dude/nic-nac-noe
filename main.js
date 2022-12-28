@@ -40,7 +40,7 @@ function how_to_play()
 
 function home()
 {
-    window.location.href = "home.html";
+    window.location.href = "index.html";
 }
 
 function openGame()
@@ -190,7 +190,8 @@ function hideChar(box)
 //Allows users to take turn with X/O with colors red/blue
 function play_turn(box)
 {
-    if (boardstate.full_board[boardstate.current_board][box] == 0)
+    //check if selected box is available
+    if (boardstate.full_board[boardstate.current_board][box] == 0 && confirm("Confirm Move?"))
     {
         //inserts X/O
         document.getElementsByClassName("side_board")[box].innerHTML = players_map[player_turn];
