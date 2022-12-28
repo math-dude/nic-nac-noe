@@ -2,5 +2,3 @@
 
 # This game is a variation of tic-tac-toe
 # https://math-dude.github.io/nic-nac-noe/home.html
-
-reminder to add confirmation of next move
