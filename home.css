@@ -1,12 +1,16 @@
-body {
-    margin: 30px;
-    background-color: rgb(110, 209, 143); 
+body
+{
+  margin: 30px;
+  background-color: rgb(110, 209, 143); 
+  text-align:center;
+  user-select: none;
 }
 
-h1 {
-    font-size: 72px;
-    font-family: sans-serif;
-    text-align: center;
+h1
+{
+  font-size: 140px;
+  font-family: sans-serif;
+  text-align: center;
 }
 
 
@@ -19,7 +23,8 @@ img
 }
 
 /* CSS */
-button {
+button
+{
   appearance: none;
   backface-visibility: hidden;
   background-color: #27ae60;
@@ -31,7 +36,7 @@ button {
   cursor: pointer;
   display: inline-block;
   font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
-  font-size: 16px;
+  font-size: 50px;
   font-weight: 600;
   letter-spacing: normal;
   line-height: 1.5;
@@ -48,27 +53,25 @@ button {
   touch-action: manipulation;
   vertical-align: top;
   white-space: nowrap;
-  margin-left: 45%;
-  margin-right: 50%;
-}
-.help
-{
   margin-left: auto;
   margin-right: auto;
 }
 
-button:hover {
+button:hover
+{
   background-color: #1e8449;
   opacity: 1;
   transform: translateY(0);
   transition-duration: .35s;
 }
 
-button:active {
+button:active
+{
   transform: translateY(2px);
   transition-duration: .35s;
 }
 
-button:hover {
+button:hover
+{
   box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
 }

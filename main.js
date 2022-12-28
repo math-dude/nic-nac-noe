@@ -44,7 +44,6 @@ function home()
 function openGame()
 {
     window.location.href = "game.html";
-    
 }
 
 function openMobile()
