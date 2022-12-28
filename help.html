@@ -1,15 +1,83 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>Nic Nac Noe</title>
 
-    <link rel="stylesheet" href="start.css" />
-    <script src="main.js"></script>
+    <link rel="stylesheet" href="help.css" />
+    <link rel="stylesheet" href="grid_boxes.css" />
+    <script src="navigation.js"></script>
   </head>
-  <body>
-    <h1>How to play Nic-Nac-Noe</h1>
-    <button type="button" onclick="home();">Home</button>
-  </body>
+
+<body>
+
+  <h1>How to Play</h1>
+
+  <div class="img-container">
+      <div class = "description">This is Nic Nac Noe</div>
+      <img src="images/game_starting_config.png" alt="" class="imageTag description">
+      <div class="btn-container">
+        <button onclick="previous()">Previous</button>
+        <button onclick="next()">Next</button>
+      </div>
+
+    <script>
+      let images = [
+          'images/game_starting_config.png',
+          'images/full_board.png',
+          'images/small_board.png',
+          'images/player_turn.png',
+          'images/resign_button.png',
+          'images/select_board.png',
+          'images/play_first_turn.png',
+          'images/previous_move_highlighted.png',
+          'images/play_second_turn.png',
+          'images/after_second_turn.png',
+          'images/win_small_board.png',
+          'images/game_won.png'
+      ];
+
+      let text = [
+        "This is Nic Nac Noe", 
+        "The full board will look like this.",
+        "The small board on the right will represent one of the nine smaller boards on the left big board which will be highlighted during the game.",
+        "This is the player turn indicator which indicates which player is next to move.",
+        "The resign button can be used if you feel like you are losing and would like to end the game early.",
+        "To start the game, Player 1 must first select a small board to start on in the big board.",
+        "After selecting a board, Player 1 selects a box on the small board selected to play in.",
+        "After Player 1 selects a box, Player 2 will then get sent to the small board corresponding to the selected box. In addition, the previous move made will be highlighted on the big board.",
+        "Then, Player 2 must select a box.",
+        "After Player 2 selects a box, Player 1 will then get sent to the small board corresponding to the selected box. This process is repeated for each turn for the rest of the game.",
+        "A player can win a small board by getting three of their symbols in a row, column, or diagonal. This board cannot be won again by another player but can still be played on.",
+        "To win the game, a player must win all three small boards in a row, column, or diagonal on the big board."
+      ];
+
+      let imageTag = document.querySelector('.imageTag');
+      let description = document.getElementsByClassName('description')[0];
+      let i = 0;
+      
+      function next() {
+          if (i >= images.length - 1) {
+              return false;
+          }
+          i++;
+          imageTag.setAttribute('src', images[i]);
+          description.innerHTML = text[i];
+      }
+      function previous() {
+          if (i <= 0) {
+              return false;
+          }
+          i--;
+          imageTag.setAttribute('src', images[i]);
+          description.innerHTML = text[i];
+      }
+    </script>
+  </div>
+  
+  <br></br>
+  <button type="button" onclick="home();">Home</button>
+
+</body>
+
 </html>

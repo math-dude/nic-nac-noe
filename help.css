@@ -8,9 +8,22 @@ body
 
 h1
 {
-  font-size: 140px;
+  font-size: 100px;
   font-family: sans-serif;
   text-align: center;
+}
+
+.description
+{
+    border: 6px double rgb(76, 196, 116);
+    font-size: 36px;
+    font-family: Times, Times New Roman, serif;
+    width: 100%;
+}
+
+img
+{
+  width: 100%;
 }
 
 button
@@ -45,6 +58,7 @@ button
   white-space: nowrap;
   margin-left: auto;
   margin-right: auto;
+  width: 250px;
 }
 
 button:hover

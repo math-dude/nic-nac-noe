@@ -32,28 +32,6 @@ let boardstate =
     }
 }
 
-//menu functions & variables
-function how_to_play()
-{
-    window.location.href = "help.html";
-}
-
-function home()
-{
-    window.location.href = "index.html";
-}
-
-function openGame()
-{
-    window.location.href = "game.html";
-}
-
-function openMobile()
-{
-    window.location.href = "mobile_game.html";
-}
-//
-
 //important overall game functions
 const players_map =
 {
@@ -222,15 +200,15 @@ function play_turn(box)
             //change player turn
             player_turn = (player_turn % 2) + 1;
             turn_count ++;
+
+            //change game info
+            document.getElementById("player_turn").innerHTML = players_map[player_turn];
+            document.getElementById("game_info").style.color = player_colors[player_turn];
         }
         else
         {
             //add board to full_boards
             full_boards.push(box);
-
-            //change game info
-            document.getElementById("player_turn").innerHTML = players_map[player_turn];
-            document.getElementById("game_info").style.color = player_colors[player_turn];
 
             //switch to full board
             matchBoards(board_map[box]);
