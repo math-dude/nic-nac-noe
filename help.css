@@ -18,7 +18,9 @@ h1
     border: 6px double rgb(76, 196, 116);
     font-size: 36px;
     font-family: Times, Times New Roman, serif;
-    width: 100%;
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 img
