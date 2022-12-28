@@ -38,13 +38,18 @@ function how_to_play()
 
 function home()
 {
-    window.location.href = "start.html";
+    window.location.href = "home.html";
 }
 
 function openGame()
 {
     window.location.href = "game.html";
     
+}
+
+function openMobile()
+{
+    window.location.href = "mobile_game.html";
 }
 //
 
@@ -329,7 +334,7 @@ function resign_newgame()
 {
     if (button_type == 0)
     {
-        if(confirm("Are you sure you want to resign?" == true))
+        if(confirm("Are you sure you want to resign?"))
         {
             let winner_map = [0, 2, 1];
             endGame(winner_map[player_turn]);

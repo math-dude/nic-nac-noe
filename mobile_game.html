@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Tic Tac Toe</title>
+
+<link rel="stylesheet" href="game.css" />
+<link rel="stylesheet" href="grid_boxes.css" />
+<script src="main.js"></script>
+</head>
+
+<body>
+<h1>Nic-Nac-Noe</h1>
+    <table class="main_board">
+        <tr>
+            <td class="grid_box" id="grid_box_0" onclick="selectBoard('board_a');">
+                <div class="sub_board">
+                <div class="board_a"></div>
+                <div class="board_a"></div>
+                <div class="board_a"></div>
+                <div class="board_a"></div>
+                <div class="board_a"></div>
+                <div class="board_a"></div>
+                <div class="board_a"></div>
+                <div class="board_a"></div>
+                <div class="board_a"></div>
+                </div>
+            </td>
+            <td class="grid_box" id="grid_box_1" onclick="selectBoard('board_b');">
+                <div class="sub_board">
+                <div class="board_b"></div>
+                <div class="board_b"></div>
+                <div class="board_b"></div>
+                <div class="board_b"></div>
+                <div class="board_b"></div>
+                <div class="board_b"></div>
+                <div class="board_b"></div>
+                <div class="board_b"></div>
+                <div class="board_b"></div>
+                </div>
+            </td>
+            <td class="grid_box" id="grid_box_2" onclick="selectBoard('board_c');">
+                <div class="sub_board">
+                <div class="board_c"></div>
+                <div class="board_c"></div>
+                <div class="board_c"></div>
+                <div class="board_c"></div>
+                <div class="board_c"></div>
+                <div class="board_c"></div>
+                <div class="board_c"></div>
+                <div class="board_c"></div>
+                <div class="board_c"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="grid_box" id="grid_box_3" onclick="selectBoard('board_d');">
+                <div class="sub_board">
+                <div class="board_d"></div>
+                <div class="board_d"></div>
+                <div class="board_d"></div>
+                <div class="board_d"></div>
+                <div class="board_d"></div>
+                <div class="board_d"></div>
+                <div class="board_d"></div>
+                <div class="board_d"></div>
+                <div class="board_d"></div>
+                </div>
+            </td>
+            <td class="grid_box" id="grid_box_4" onclick="selectBoard('board_e');">
+                <div class="sub_board">
+                <div class="board_e"></div>
+                <div class="board_e"></div>
+                <div class="board_e"></div>
+                <div class="board_e"></div>
+                <div class="board_e"></div>
+                <div class="board_e"></div>
+                <div class="board_e"></div>
+                <div class="board_e"></div>
+                <div class="board_e"></div>
+                </div>
+            </td>
+            <td class="grid_box" id="grid_box_5" onclick="selectBoard('board_f');">
+                <div class="sub_board">
+                <div class="board_f"></div>
+                <div class="board_f"></div>
+                <div class="board_f"></div>
+                <div class="board_f"></div>
+                <div class="board_f"></div>
+                <div class="board_f"></div>
+                <div class="board_f"></div>
+                <div class="board_f"></div>
+                <div class="board_f"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="grid_box" id="grid_box_6" onclick="selectBoard('board_g');">
+                <div class="sub_board">
+                <div class="board_g"></div>
+                <div class="board_g"></div>
+                <div class="board_g"></div>
+                <div class="board_g"></div>
+                <div class="board_g"></div>
+                <div class="board_g"></div>
+                <div class="board_g"></div>
+                <div class="board_g"></div>
+                <div class="board_g"></div>
+                </div>
+            </td>
+            <td class="grid_box" id="grid_box_7" onclick="selectBoard('board_h');">
+                <div class="sub_board">
+                <div class="board_h"></div>
+                <div class="board_h"></div>
+                <div class="board_h"></div>
+                <div class="board_h"></div>
+                <div class="board_h"></div>
+                <div class="board_h"></div>
+                <div class="board_h"></div>
+                <div class="board_h"></div>
+                <div class="board_h"></div>
+                </div>
+            </td>
+            <td class="grid_box" id="grid_box_8" onclick="selectBoard('board_i');">
+                <div class="sub_board">
+                <div class="board_i"></div>
+                <div class="board_i"></div>
+                <div class="board_i"></div>
+                <div class="board_i"></div>
+                <div class="board_i"></div>
+                <div class="board_i"></div>
+                <div class="board_i"></div>
+                <div class="board_i"></div>
+                <div class="board_i"></div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div class="game_info" id="game_info">
+        <h2 id = "game_info_title">Player Turn</h2>
+        <div class="player_turn" id = "player_turn">X</div>
+        <br></br>
+        <button type="button" class="resign/new_game" id="resign/new_game" onclick="resign_newgame();">Resign</button>
+    </div>
+    <div class="small_board" id = "small_board">
+        <div class="side_board" id = "side_board_0" onclick="play_turn(0)" onmouseenter="showChar(0);" onmouseleave="hideChar(0);"></div>
+        <div class="side_board" id = "side_board_1" onclick="play_turn(1)" onmouseenter="showChar(1);" onmouseleave="hideChar(1);"></div>
+        <div class="side_board" id = "side_board_2" onclick="play_turn(2)" onmouseenter="showChar(2);" onmouseleave="hideChar(2);"></div>
+        <div class="side_board" id = "side_board_3" onclick="play_turn(3)" onmouseenter="showChar(3);" onmouseleave="hideChar(3);"></div>
+        <div class="side_board" id = "side_board_4" onclick="play_turn(4)" onmouseenter="showChar(4);" onmouseleave="hideChar(4);"></div>
+        <div class="side_board" id = "side_board_5" onclick="play_turn(5)" onmouseenter="showChar(5);" onmouseleave="hideChar(5);"></div>
+        <div class="side_board" id = "side_board_6" onclick="play_turn(6)" onmouseenter="showChar(6);" onmouseleave="hideChar(6);"></div>
+        <div class="side_board" id = "side_board_7" onclick="play_turn(7)" onmouseenter="showChar(7);" onmouseleave="hideChar(7);"></div>
+        <div class="side_board" id = "side_board_8" onclick="play_turn(8)" onmouseenter="showChar(8);" onmouseleave="hideChar(8);"></div>
+    </div>
+</body>
+<script type="text/javascript">
+startGame();
+</script>
+</html>
