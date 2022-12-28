@@ -16,10 +16,12 @@ let boardstate =
         "board_g" : [0, 0, 0, 0, 0, 0, 0, 0, 0],
         "board_h" : [0, 0, 0, 0, 0, 0, 0, 0, 0],
         "board_i" : [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        "" :[]
+        "" :[1, 1, 1, 1, 1, 1, 1, 1, 1]
         
     },
     current_board : "",
+    //board_name, box number
+    previous_move : ["board_a", 0],
 
 
     reset : function()
@@ -148,6 +150,7 @@ function selectBoard(board_name)
 function startGame()
 {
     boardstate.reset();
+
     //enables hover highlighting
     let all_boards = document.getElementsByClassName("grid_box");
     for (i in all_boards)
@@ -200,6 +203,12 @@ function play_turn(box)
         document.getElementsByClassName(boardstate.current_board)[box].innerHTML = players_map[player_turn];
         document.getElementsByClassName(boardstate.current_board)[box].style.color = player_colors[player_turn];
 
+        //remove highlight from previous move
+        document.getElementsByClassName(boardstate.previous_move[0])[boardstate.previous_move[1]].style.backgroundColor = "rgb(110, 209, 143)";
+
+        //set previous move to current move
+        boardstate.previous_move = [boardstate.current_board.slice(), box]
+
         //check for win in sub_board
         checkSubWin();
         
@@ -208,14 +217,19 @@ function play_turn(box)
             //switch boxes
             //setTimeout(matchBoards, 500, board_map[box]);
             matchBoards(board_map[box]);
+
+            //change player turn
+            player_turn = (player_turn % 2) + 1;
+            turn_count ++;
         }
         else
         {
-            //alert player to pick another board
-            alert("Board full, pick a new board player " + player_turn);
-
             //add board to full_boards
             full_boards.push(box);
+
+            //change game info
+            document.getElementById("player_turn").innerHTML = players_map[player_turn];
+            document.getElementById("game_info").style.color = player_colors[player_turn];
 
             //switch to full board
             matchBoards(board_map[box]);
@@ -229,16 +243,23 @@ function play_turn(box)
                     document.getElementById("grid_box_" + i).style.pointerEvents = "auto";
                 }
             }
+
+            //change player turn
+            player_turn = (player_turn % 2) + 1;
+            turn_count ++;
+
+            //change game info
+            document.getElementById("player_turn").innerHTML = players_map[player_turn];
+            document.getElementById("game_info").style.color = player_colors[player_turn];
+
+            //alert player to pick another board
+            alert("Board full, pick a new board player " + player_turn);
         }
-
-        //change player turn
-        player_turn = (player_turn % 2) + 1;
-        turn_count ++;
-
-        //change game info
-        document.getElementById("player_turn").innerHTML = players_map[player_turn];
-        document.getElementById("game_info").style.color = player_colors[player_turn];
         
+        //add highlighting to new move
+        document.getElementsByClassName(boardstate.previous_move[0])[boardstate.previous_move[1]].style.backgroundColor = "rgb(170, 223, 46)";
+
+        //check for win
         checkWin();
     }
 }
@@ -340,8 +361,8 @@ function resign_newgame()
     {
         if(confirm("Are you sure you want to resign?"))
         {
-            let winner_map = [0, 2, 1];
-            endGame(winner_map[player_turn]);
+            const opposite_player = [0, 2, 1];
+            endGame(opposite_player[player_turn]);
         }
     }
     else
