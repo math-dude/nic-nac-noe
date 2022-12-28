@@ -215,6 +215,9 @@ function play_turn(box)
             //add board to full_boards
             full_boards.push(box);
 
+            //switch to full board
+            matchBoards(board_map[box]);
+
             //turn hover highlighting back on
             for (let i = 0; i < 9; i ++)
             {
