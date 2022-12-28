@@ -125,6 +125,9 @@ function matchBoards(board_name)
     //change grid color
     const player_colors_highlight = ["rgb(11, 96, 5)", "rgb(250, 108, 82)", "rgb(73, 192, 242)"]
     document.getElementById("small_board").style.backgroundColor = player_colors_highlight[boardstate.big_board[board_map[boardstate.current_board]]];
+
+    //enable left board
+    document.getElementById("small_board").style.pointerEvents = "auto";
 }
 //
 
@@ -215,8 +218,8 @@ function play_turn(box)
             //add board to full_boards
             full_boards.push(box);
 
-            //switch to full board
-            matchBoards(board_map[box]);
+            //disable small board
+            document.getElementById("small_board").style.pointerEvents = "none";
 
             //turn hover highlighting back on
             for (let i = 0; i < 9; i ++)
