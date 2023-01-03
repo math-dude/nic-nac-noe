@@ -74,6 +74,11 @@ button:hover
   box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
 }
 
+.game_info
+{
+  background-color: rgb(250, 108, 82);
+}
+
 .player_turn
 {
   font-family: Helvetica;

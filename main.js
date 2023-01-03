@@ -66,6 +66,7 @@ const board_map =
 }
 
 const player_colors = ["black", "rgb(176, 13, 13)", "rgb(37, 90, 223)"];
+const player_colors_highlight = ["", "rgb(250, 108, 82)", "rgb(73, 192, 242)"];
 
 //changes color of one of the sub_boards in the left grid
 function colorBoard(board_name, color)
@@ -103,7 +104,6 @@ function matchBoards(board_name)
     }
 
     //change grid color
-    const player_colors_highlight = ["rgb(11, 96, 5)", "rgb(250, 108, 82)", "rgb(73, 192, 242)"]
     document.getElementById("small_board").style.backgroundColor = player_colors_highlight[boardstate.big_board[board_map[boardstate.current_board]]];
 }
 //
@@ -204,6 +204,7 @@ function play_turn(box)
             //change game info
             document.getElementById("player_turn").innerHTML = players_map[player_turn];
             document.getElementById("game_info").style.color = player_colors[player_turn];
+            document.getElementById("game_info").style.background = player_colors_highlight[player_turn];
         }
         else
         {
@@ -230,6 +231,7 @@ function play_turn(box)
             //change game info
             document.getElementById("player_turn").innerHTML = players_map[player_turn];
             document.getElementById("game_info").style.color = player_colors[player_turn];
+            document.getElementById("game_info").style.background = player_colors_highlight[player_turn];
 
             //alert player to pick another board
             alert("Board full, pick a new board player " + player_turn);
@@ -264,7 +266,6 @@ function checkSubWin()
                 (player == sub_board[2] && player == sub_board[4] && player == sub_board[6])
             )
             {
-                const player_colors_highlight = ["", "rgb(250, 108, 82)", "rgb(73, 192, 242)"]
                 boardstate.big_board[board_map[board_name]] = player;
                 document.getElementsByClassName("grid_box")[board_map[board_name]].style.backgroundColor = player_colors_highlight[player];
             }
@@ -315,7 +316,7 @@ function endGame(winning_player)
         document.getElementById("player_turn").innerHTML = "-";
         document.getElementById("player_turn").style.color = "rgb(110, 110, 110)";
 
-        
+        document.getElementById("game_info").style.background = "rgb(50, 50, 50)";
     }
     else
     {
@@ -325,6 +326,8 @@ function endGame(winning_player)
         document.getElementById("player_turn").innerHTML = players_map[winning_player];
         document.getElementById("player_turn").style.color = player_colors[winning_player];
 
+        //change game info background color to winning player color
+        document.getElementById("game_info").style.background = player_colors_highlight[winning_player];
     }
 
     //change resign button to new game button
