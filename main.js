@@ -153,6 +153,10 @@ function showChar(box)
     {
         document.getElementsByClassName("side_board")[box].innerHTML = players_map[player_turn];
         document.getElementsByClassName("side_board")[box].style.color = player_colors[player_turn];
+        
+        //map to full board
+        document.getElementsByClassName(boardstate.current_board)[box].innerHTML = players_map[player_turn];
+        document.getElementsByClassName(boardstate.current_board)[box].style.color = player_colors[player_turn];
     }
 }
 
@@ -162,6 +166,10 @@ function hideChar(box)
     {
         document.getElementsByClassName("side_board")[box].innerHTML = "";
         document.getElementsByClassName("side_board")[box].style.color = "black";
+        
+        //map to full board
+        document.getElementsByClassName(boardstate.current_board)[box].innerHTML = "";
+        document.getElementsByClassName(boardstate.current_board)[box].style.color = "black;
     }
 }
 
